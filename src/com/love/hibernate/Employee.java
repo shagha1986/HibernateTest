@@ -2,6 +2,8 @@ package com.love.hibernate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,6 +11,7 @@ import javax.persistence.Table;
 @Table(name = "emp")
 public class Employee {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 	@Column(name = "age")
@@ -18,13 +21,18 @@ public class Employee {
 	
 	public Employee() {}
 	public Employee(int id, int age, String name) {
-		super();
+		
 		this.age = age;
 		this.name = name;
 		this.id = id;
 	}
 	
 	
+	public Employee(int age, String name) {
+		
+		this.age = age;
+		this.name = name;
+	}
 	public int getId() {
 		return id;
 	}
